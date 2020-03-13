@@ -1,0 +1,23 @@
+<form bindsubmit="formSubmit">
+    <view class="block">
+        <view class="user-money">账户剩余金额：{{price}}元</view>
+        <view wx:if="{{cash_max_day!=-1}}" class="flex-row cash-max-day">
+            <view class="flex-y-center">今日剩余提现金额{{cash_max_day}}元</view>
+            <view class="cash-max-detail" bindtap="showCashMaxDetail">详情</view>
+        </view>
+    </view>
+    <view class="flex-row block">
+        <view class="flex-grow-0 flex-y-center cash-cny">￥</view>
+        <view class="flex-grow-1 flex-y-center">
+            <input type="digit" name="cash" class="cash-input" placeholder="输入提现金额"
+                   placeholder-style="color:#bbb;font-size:13pt"/>
+        </view>
+    </view>
+    <view class="block" style="background: none;border: none">
+        <view class="cash-min">提现金额不能小于{{share_setting.min_money}}元</view>
+    </view>
+
+    <view class="block" style="background: none;border: none">
+        <button class="cash-btn" formType="submit">提交申请</button>
+    </view>
+</form>
